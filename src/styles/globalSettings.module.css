@@ -1,0 +1,14 @@
+.globalSettingsContainer{
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: -30px;
+}
+
+@media (max-width: 768px) {
+    .globalSettingsContainer{
+        width: 100%;
+    }
+}

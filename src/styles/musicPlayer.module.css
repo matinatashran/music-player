@@ -1,0 +1,135 @@
+.musicPlayer{
+    width: 62%;
+    height: 100%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+    background-color: #fff;
+    z-index: 999;
+    transition: 0.8s;
+}
+
+.arrowUpAndDown{
+    position: absolute;
+    top: 0;
+    color: #5f9ea0;
+}
+
+.musicProfile{
+    width: 85%;
+    height: 300px;
+    box-shadow: 0 0 5px #c4c4c4;
+    border-radius: 20px;
+    display: flex;
+    column-gap: 20px;
+    overflow: hidden;
+}
+
+.profileLeft{
+    width: 240px;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+}
+
+.profileRight{
+    width: calc(100% - 240px);
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.profileRight *{
+    font-family: ZenMaruGothic-Regular;
+}
+
+.subName{
+    color: #9b9b9b;
+}
+
+.musicName{
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+.welcomeMessage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.welcomeMessage span:nth-child(1){
+    font-weight: bold;
+    color: #5f9ea0;
+}
+
+.welcomeMessage span:nth-child(2){
+    color: #5f9ea0a7;
+}
+
+.timeOfMusic{
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+    position: relative;
+}
+
+.replay{
+    cursor: pointer;
+    color: #c4c4c4;
+    position: absolute;
+    right: 0;
+    top: -20px;
+}
+
+.volumeAndSpeedBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1250px) {
+    .musicProfile{
+        width: 90%;
+        height: 250px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .musicPlayer{
+        width: 100%;
+        position: absolute;
+    }
+}
+
+@media (max-width: 768px) {
+    .musicPlayer{
+        padding: 30px;
+        row-gap: 20px;
+    }
+
+    .musicProfile{
+        width: 95%;
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .musicProfile{
+        width: 85%;
+    }
+
+    .profileLeft{
+        width: 100%;
+    }
+
+    .profileRight{
+        display: none;
+    }
+}

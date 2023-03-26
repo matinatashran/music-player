@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Gurajada-Regular;
+  src: url("../fonts/Gurajada-Regular.ttf");
+}
+
+@font-face {
+  font-family: ZenMaruGothic-Regular;
+  src: url("../fonts/ZenMaruGothic-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Gurajada-Regular;
+}
+
+*::selection{
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
