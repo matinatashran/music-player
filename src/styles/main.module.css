@@ -172,17 +172,17 @@
         width: 100%;
     }
 
-    .musicBox{
-        height: 60vh;
-    }
-
     .buttonBox{
         width: 60%;
         height: 50px;
     }
-
+    
     .newUploadButton span{
         padding: 31px;
+    }
+    
+    .musicBox{
+        height: calc(100% - 170px);
     }
 
     .musicNotExist{
