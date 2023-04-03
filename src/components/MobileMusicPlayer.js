@@ -42,7 +42,7 @@ const MobileMusicPlayer = ({
 
     return (
         <div className={style.mobileMusicPlayerContainer}>
-            <div onClick={showHandler} style={{ overflow: "hidden" }}>
+            <div onClick={showHandler} style={{ overflow: "hidden", marginLeft: "-20px", width: "100%" }}>
                 <div className={style.imageBox}>
                     <img src={musicLogo} alt={name} />
                 </div>
