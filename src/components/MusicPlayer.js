@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import PauseRounded from "@mui/icons-material/PauseRounded";
 import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
@@ -24,6 +24,8 @@ import useScreenWidth from "../hooks/useScreenWidth";
 
 const MusicPlayer = ({
     musicPlaying,
+    isPlay,
+    setIsPlay,
     setMusicPlaying,
     musicList,
     isShowSubPlayer,
@@ -36,7 +38,6 @@ const MusicPlayer = ({
     // This state is for show mobile music player
     const [isShowMainPlayer, setIsShowMainPlayer] = useState(false);
 
-    const [isPlay, setIsPlay] = useState(false);
     const [isOnRepeat, setIsOnRepeat] = useState(false);
     const [time, setTime] = useState(0);
     const [volume, setVolume] = useState(50);

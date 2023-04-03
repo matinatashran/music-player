@@ -120,6 +120,7 @@ const Main = () => {
                                         audio={music.audio}
                                         musicList={musicList}
                                         setMusicList={setMusicList}
+                                        setIsPlay={setIsPlay}
                                         setMusicPlaying={setMusicPlaying}
                                         musicPlaying={musicPlaying}
                                         isShowSubPlayer={isShowSubPlayer}
