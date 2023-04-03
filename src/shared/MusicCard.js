@@ -19,6 +19,7 @@ const MusicCard = ({
     musicList,
     setMusicList,
     setMusicPlaying,
+    setIsPlay,
     musicPlaying,
     isShowSubPlayer,
     setIsShowSubPlayer,
@@ -28,10 +29,12 @@ const MusicCard = ({
 
     const playHandler = () => {
         if (musicPlaying.audio && musicPlaying.name !== name) {
+            console.log("Neq")
             musicPlaying.audio.pause();
             musicPlaying.audio.currentTime = 0;
         }
         audio.play();
+        setIsPlay(true);
         setIsShowSubPlayer(true);
         setMusicPlaying({
             id: id,
