@@ -50,7 +50,6 @@ const MusicPlayer = ({
             setTime(Math.floor(audio.currentTime));
             if (!isShowMainPlayer) setIsShowSubPlayer(true);
         }
-        console.log(1)
     }, [audio]);
 
     let runProgBar;
