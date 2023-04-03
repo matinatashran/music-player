@@ -31,8 +31,8 @@ const MobileMusicPlayer = ({
         audio.currentTime = 0;
         setIsShowSubPlayer(false);
         setIsShowMainPlayer(false);
-        setTime(0);
         setIsPlay(false);
+        setTime(0);
     };
 
     const showHandler = () => {

@@ -20,6 +20,8 @@ const MusicCard = ({
     setMusicList,
     setMusicPlaying,
     musicPlaying,
+    isShowSubPlayer,
+    setIsShowSubPlayer,
 }) => {
     const [isShow, setIsShow] = useState(false);
     const screenWidth = useScreenWidth();
@@ -30,6 +32,7 @@ const MusicCard = ({
             musicPlaying.audio.currentTime = 0;
         }
         audio.play();
+        setIsShowSubPlayer(true);
         setMusicPlaying({
             id: id,
             name,
@@ -53,7 +56,7 @@ const MusicCard = ({
                 onClick={screenWidth < 1025 ? playHandler : null}
             >
                 <div className={style.musicIcon}>
-                    {musicPlaying.audio === audio ? (
+                    {musicPlaying.audio === audio && isShowSubPlayer ? (
                         <MusicEqualizer type="ANIMATION" isPlay={true} />
                     ) : (
                         <MusicEqualizer type="STATIC" isPlay={false} />

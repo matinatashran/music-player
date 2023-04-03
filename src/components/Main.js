@@ -13,6 +13,7 @@ import style from "../styles/main.module.css";
 import { getDuration } from "../helper/functions";
 
 const Main = () => {
+    const [isPlay, setIsPlay] = useState(false);
     const [searchedMusic, setSearchMusic] = useState("");
     const [musicPlaying, setMusicPlaying] = useState({
         id: "",
@@ -20,6 +21,10 @@ const Main = () => {
         duration: "",
         audio: "",
     });
+
+    // This state is for show mobile music player
+    const [isShowSubPlayer, setIsShowSubPlayer] = useState(false);
+
     const [musicList, setMusicList] = useState([]);
     const musicFileHanlder = async (e, type) => {
         const selectedMusics = e.target.files;
@@ -45,9 +50,13 @@ const Main = () => {
     return (
         <main className={style.mainContainer}>
             <MusicPlayer
+                isPlay={isPlay}
+                setIsPlay={setIsPlay}
                 musicPlaying={musicPlaying}
                 setMusicPlaying={setMusicPlaying}
                 musicList={musicList}
+                isShowSubPlayer={isShowSubPlayer}
+                setIsShowSubPlayer={setIsShowSubPlayer}
             />
             <section className={style.musicMenu}>
                 <div className={style.buttonBox}>
@@ -113,6 +122,9 @@ const Main = () => {
                                         setMusicList={setMusicList}
                                         setMusicPlaying={setMusicPlaying}
                                         musicPlaying={musicPlaying}
+                                        isShowSubPlayer={isShowSubPlayer}
+                                        setIsShowSubPlayer={setIsShowSubPlayer}
+                                        
                                     />
                                 )
                         )

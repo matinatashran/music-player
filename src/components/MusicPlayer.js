@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import PauseRounded from "@mui/icons-material/PauseRounded";
 import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
@@ -22,33 +22,39 @@ import MobileMusicPlayer from "./MobileMusicPlayer";
 // hooks
 import useScreenWidth from "../hooks/useScreenWidth";
 
-const MusicPlayer = ({ musicPlaying, setMusicPlaying, musicList }) => {
+const MusicPlayer = ({
+    musicPlaying,
+    setMusicPlaying,
+    musicList,
+    isShowSubPlayer,
+    setIsShowSubPlayer,
+}) => {
     const theme = useTheme();
     const screenWidth = useScreenWidth();
     const { id, name, duration, audio } = musicPlaying;
 
-    // Thease states is for show mobile music player
-    const [isShowSubPlayer, setIsShowSubPlayer] = useState(false);
+    // This state is for show mobile music player
     const [isShowMainPlayer, setIsShowMainPlayer] = useState(false);
 
-    const [isOnRepeat, setIsOnRepeat] = useState(false);
     const [isPlay, setIsPlay] = useState(false);
+    const [isOnRepeat, setIsOnRepeat] = useState(false);
     const [time, setTime] = useState(0);
     const [volume, setVolume] = useState(50);
 
     const mainIconColor = theme.palette.mode === "dark" ? "#fff" : "#000";
 
-    useMemo(() => {
+    useEffect(() => {
         if (audio) {
             !audio.paused && setIsPlay(true);
             audio.volume = volume / 100;
             setTime(Math.floor(audio.currentTime));
             if (!isShowMainPlayer) setIsShowSubPlayer(true);
         }
+        console.log(1)
     }, [audio]);
 
     let runProgBar;
-    useMemo(() => {
+    useEffect(() => {
         if (isPlay) {
             runProgBar = setInterval(() => {
                 if (!audio.paused) {
@@ -74,7 +80,7 @@ const MusicPlayer = ({ musicPlaying, setMusicPlaying, musicList }) => {
         }
     }, [audio, isPlay]);
 
-    useMemo(() => {
+    useEffect(() => {
         if (audio) {
             if (isOnRepeat && time === duration - 1) {
                 audio.currentTime = 0;
