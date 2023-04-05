@@ -35,7 +35,7 @@
     font-size: 0.8rem;
     overflow: hidden;
     white-space: nowrap;
-    background: linear-gradient(to right, #ffffff 75%, transparent 98%);
+    background: linear-gradient(to right, #367472 75%, transparent 98%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -49,7 +49,7 @@
 
 .musicDuration{
     font-size: 0.8rem;
-    color: #b4d0d1;
+    color: #367472bd;
 }
 
 .more{
