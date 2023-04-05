@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     width: 1200px;
-    height: 90vh;
+    max-height: 90vh;
     box-shadow: 0 0 5px #c4c4c4;
+    background: linear-gradient(-145deg, #6b9ba1 10%, transparent 80%);
     border-radius: 30px;
     overflow: hidden;
     position: fixed;
@@ -19,7 +20,7 @@
     height: 100%;
     padding: 30px 10px;
     background: transparent;
-    background-color: #5f9ea0;
+    /* background-color: #5f9ea0; */
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -32,8 +33,7 @@
     width: 60%;
     display: flex;
     align-items: center;
-    background-color: #fff;
-    border: 2px solid #fff;
+    border: 3px solid #fff;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -41,7 +41,6 @@
 }
 
 .buttonBox div{
-    padding: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,16 +51,8 @@
 .fileBox{
     width: 100%;
     color: #fff;
-    background-color: #5f9ea0;
-}
-.newFileBox{
-    width: 20%;
-    height: 100%;
-    color: #5f9ea0;
-    white-space: nowrap;
-    overflow: hidden;
-    position: relative;
-    transition: 0.6s;
+    border-right: 3px solid #fff;
+    background-color: transparent;
 }
 
 .uploadButton{
@@ -71,9 +62,23 @@
     transition: 0.3s;
 }
 
+.newFileBox{
+    width: 20%;
+    height: 55px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    transition: 0.6s;
+}
+
+.newFileBox:hover{
+    width: 100%;
+}
+
 .newUploadButton{
     position: absolute;
-    right: 2px;
+    right: 1px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -82,11 +87,7 @@
 
 .newUploadButton span{
     font-size: 2rem;
-    padding: 16px;
-}
-
-.newFileBox:hover{
-    width: 100%;
+    padding: 0 16px 4px 16px;
 }
 
 .uploadButton:active, 
@@ -141,7 +142,7 @@
 .musicNotExist{
     margin-top: 40%;
     font-size: 2rem;
-    color: #d4e4e4;
+    color: #fff;
     position: relative;
     overflow: hidden;
 }
@@ -163,6 +164,7 @@
 @media (max-width: 1024px) {
     .mainContainer{
         width: 750px;
+        background: linear-gradient(to bottom, #6b9ba1 10%, transparent 80%);
         margin-left: -375px;
         flex-direction: column;
         align-items: center;
@@ -178,7 +180,7 @@
     }
     
     .newUploadButton span{
-        padding: 31px;
+        padding: 0 31px 4px 31px;
     }
     
     .musicBox{
@@ -214,6 +216,6 @@
     }
 
     .newUploadButton span{
-        padding: 16px;
+        padding: 0 16px 4px 16px;
     }
 }
