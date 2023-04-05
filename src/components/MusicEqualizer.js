@@ -4,7 +4,7 @@ const Div = styled.div`
     width: 3px;
     height: ${(props) => props.mainHeight};
     border-radius: 20px;
-    background-color: ${props => props.isPlay ? "#ff4500" : "#f5ffff"};
+    background-color: ${props => props.isPlay ? "#ff4500" : "#17625f"};
     animation: ${(props) =>
         props.type === "ANIMATION"
             ? "MoveEqualizer infinite linear 0.4s alternate"
@@ -32,7 +32,6 @@ const MusicEqualizer = ({ type, isPlay }) => {
         <div style={equalizerStyle}>
             <Div type={type} mainHeight="8px" delay="0.2s" isPlay={isPlay}></Div>
             <Div type={type} mainHeight="20px" delay="0.4s" isPlay={isPlay}></Div>
-            <Div type={type} mainHeight="13px" delay="0.6s" isPlay={isPlay}></Div>
             <Div type={type} mainHeight="20px" delay="0.2s" isPlay={isPlay}></Div>
             <Div type={type} mainHeight="8px" delay="0.4s" isPlay={isPlay}></Div>
         </div>
