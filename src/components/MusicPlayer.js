@@ -134,43 +134,27 @@ const MusicPlayer = ({
                 }
             >
                 {screenWidth < 1025 && (
-                    <div className={style.arrowUpAndDown}>
+                    <div
+                        className={style.arrowDown}
+                        onClick={() => {
+                            setIsShowMainPlayer(false);
+                            setIsShowSubPlayer(true);
+                        }}
+                    >
                         {isShowMainPlayer && (
-                            <KeyboardArrowDownIcon
-                                sx={{ cursor: "pointer" }}
-                                onClick={() => {
-                                    setIsShowMainPlayer(false);
-                                    setIsShowSubPlayer(true);
-                                }}
-                            />
+                            <KeyboardArrowDownIcon sx={{ cursor: "pointer" }} />
                         )}
                     </div>
                 )}
                 <div className={style.musicProfile}>
-                    <div className={style.profileLeft}>
-                        <img
-                            className={style.image}
-                            src={musicLogo}
-                            alt={name}
-                        />
+                    <div className={style.profileImage}>
+                        <img src={musicLogo} alt={name} />
                     </div>
-                    <div className={style.profileRight}>
-                        {name ? (
-                            <>
-                                <div className={style.subName}>music</div>
-                                <div className={style.musicName}>{name}</div>
-                            </>
-                        ) : (
-                            <div className={style.welcomeMessage}>
-                                <span>Welcome!</span>
-                                <span>
-                                    Play your favorite music and enjoy it ...
-                                </span>
-                            </div>
-                        )}
+                    <div className={style.profileName}>
+                        <div>{name && name}</div>
                     </div>
                 </div>
-                <div className={style.startPauseBtnBox}>
+                <div className={style.btnHandlerBox}>
                     <IconButton
                         aria-label="previous song"
                         onClick={() => forwardMusicHandler(id - 1)}
@@ -217,8 +201,7 @@ const MusicPlayer = ({
                         setIsOnRepeat={setIsOnRepeat}
                     />
                 </div>
-                <div className={style.prevNextBtnBox}></div>
-                <div className={style.volumeAndSpeedBox}>
+                <div className={style.volumeSettingBox}>
                     <VolumeSlider
                         volume={volume}
                         setVolume={setVolume}
