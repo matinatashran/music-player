@@ -3,7 +3,7 @@
 export function formatDuration(value) {
     const minutes = Math.floor(value / 60);
     const seconds = (value - (minutes * 60)).toFixed(0);
-    return `${minutes ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+    return `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
 }
 
 // ####################################
