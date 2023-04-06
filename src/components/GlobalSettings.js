@@ -15,7 +15,7 @@ const GlobalSettings = ({ isOnRepeat, setIsOnRepeat }) => {
         <div className={style.globalSettingsContainer}>
             <RepeatOneIcon
                 sx={{
-                    color: `${isOnRepeat ? "#5f9ea0" : "#e0e0e0"}`,
+                    color: `${isOnRepeat ? "#6b9ba1" : "#6b9ba156"}`,
                     ...iconStyle,
                 }}
                 onClick={() => setIsOnRepeat(!isOnRepeat)}
