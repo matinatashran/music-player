@@ -10,7 +10,7 @@ import MusicCard from "../shared/MusicCard";
 import style from "../styles/main.module.css";
 
 // helper
-import { getDuration } from "../helper/functions";
+import { createMusicList } from "../helper/functions";
 
 const Main = () => {
     const [isPlay, setIsPlay] = useState(false);
@@ -28,19 +28,25 @@ const Main = () => {
     const [musicList, setMusicList] = useState([]);
     const musicFileHanlder = async (e, type) => {
         const selectedMusics = e.target.files;
-        const files = [];
-        for (let i = 0; i < Object.keys(selectedMusics).length; i++) {
-            const url = URL.createObjectURL(selectedMusics[i]);
+        if (type === "NEWPLAYLIST")
+            setMusicList([...(await createMusicList(selectedMusics))]);
+        else
+            setMusicList([
+                ...musicList,
+                ...(await createMusicList(selectedMusics)),
+            ]);
+    };
 
-            files.push({
-                id: i,
-                name: selectedMusics[i].name,
-                duration: await getDuration(url),
-                audio: new Audio(url),
-            });
-        }
-        if (type === "NEWPLAYLIST") setMusicList([...files]);
-        else setMusicList([...musicList, ...files]);
+    const dragHandler = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    };
+
+    const dropHandler = async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const selectedMusics = e.dataTransfer.files;
+        setMusicList([...(await createMusicList(selectedMusics))]);
     };
 
     const searchHandler = (e) => {
@@ -105,7 +111,13 @@ const Main = () => {
                         onChange={searchHandler}
                     />
                 </div>
-                <div className={style.musicBox}>
+                <div
+                    className={style.musicBox}
+                    onDragEnter={dragHandler}
+                    onDragOver={dragHandler}
+                    onDragLeave={dragHandler}
+                    onDrop={dropHandler}
+                >
                     {musicList.length ? (
                         musicList.map(
                             (music, index) =>
@@ -125,7 +137,6 @@ const Main = () => {
                                         musicPlaying={musicPlaying}
                                         isShowSubPlayer={isShowSubPlayer}
                                         setIsShowSubPlayer={setIsShowSubPlayer}
-                                        
                                     />
                                 )
                         )
