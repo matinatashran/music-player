@@ -128,7 +128,7 @@
 /* Start - This box for show musics */
 .musicBox{
     width: 100%;
-    height: 95vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
