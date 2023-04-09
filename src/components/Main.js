@@ -27,13 +27,13 @@ const Main = () => {
 
     const [musicList, setMusicList] = useState([]);
     const musicFileHanlder = async (e, type) => {
-        const selectedMusics = e.target.files;
+        const selectedFiles = e.target.files;
         if (type === "NEWPLAYLIST")
-            setMusicList([...(await createMusicList(selectedMusics))]);
+            setMusicList([...(await createMusicList(selectedFiles))]);
         else
             setMusicList([
                 ...musicList,
-                ...(await createMusicList(selectedMusics)),
+                ...(await createMusicList(selectedFiles)),
             ]);
     };
 
@@ -45,8 +45,8 @@ const Main = () => {
     const dropHandler = async (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const selectedMusics = e.dataTransfer.files;
-        setMusicList([...(await createMusicList(selectedMusics))]);
+        const selectedFiles = e.dataTransfer.files;
+        setMusicList([...(await createMusicList(selectedFiles))]);
     };
 
     const searchHandler = (e) => {
