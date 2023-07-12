@@ -9,7 +9,7 @@ import { useTheme } from "@mui/material/styles";
 import style from "../styles/mobileMusicPlayer.module.css";
 
 // assets
-import musicLogo from "../assets/musicLogo.jpg";
+import musicLogo from "../assets/images/musicLogo.jpg";
 
 const MobileMusicPlayer = ({
     id,

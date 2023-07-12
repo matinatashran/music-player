@@ -9,6 +9,10 @@
     transition: 0.8s;
 }
 
+.musicPlayer:focus{
+    outline: none;
+}
+
 .arrowDown{
     width: 30px;
     height: 30px;

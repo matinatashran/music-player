@@ -37,7 +37,7 @@ const MusicCard = ({
         setIsPlay(true);
         setIsShowSubPlayer(true);
         setMusicPlaying({
-            id: id,
+            id,
             name,
             duration: Math.floor(audio.duration),
             audio,
